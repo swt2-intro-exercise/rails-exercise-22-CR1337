@@ -4,4 +4,8 @@ class Paper < ApplicationRecord
     validates :year, presence: true, numericality: { only_integer: true }
 
     has_and_belongs_to_many :authors
+
+    def first_author
+        authors[0]
+    end
 end
