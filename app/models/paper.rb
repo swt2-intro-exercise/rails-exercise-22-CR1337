@@ -5,6 +5,8 @@ class Paper < ApplicationRecord
 
     has_and_belongs_to_many :authors
 
+    scope :published_in, ->(time) { where("year = ?", time) }
+
     def first_author_full_name
         authors.length > 0 ? authors.first.name : ""
     end
