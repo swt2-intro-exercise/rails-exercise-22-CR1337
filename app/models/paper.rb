@@ -5,7 +5,7 @@ class Paper < ApplicationRecord
 
     has_and_belongs_to_many :authors
 
-    def first_author
-        authors.first.full_name
+    def first_author_full_name
+        authors.length > 0 ? authors.first.full_name : ""
     end
 end
